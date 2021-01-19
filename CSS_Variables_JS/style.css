@@ -1,0 +1,33 @@
+
+:root{
+    --base: pink;   /*declaring css variables*/
+    --spacing: 10px;
+    --blur: 10px;
+}
+
+img{
+    padding: var(--spacing);    /*using css variables*/
+    background: var(--base);
+    filter: blur(var(--blur));
+}
+
+.hl{
+    color: var(--base);
+}
+
+body{
+    text-align: center;
+    background: darkblue;
+    color: wheat;
+    font-family: monospace;
+    font-weight: 60;
+    font-size: 50px;
+}
+
+.controls{
+    margin-bottom: 60px;
+}
+
+input{
+    width: 100px;
+}
