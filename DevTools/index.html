@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DevTools</title>
+    </head>
+    <body>
+        <p onclick="makeGreen()">BREAK X DOWN</p>
+    </body>
+
+    <script>
+        function makeGreen(){
+            const p = document.querySelector("p");
+            p.style.color = "#BADA55";
+            p.style.fontSize = "50px";
+        }
+
+        // regular
+        console.log("Hello");
+
+        //interpolated
+        console.log("Hello I am %s string","interpolated");
+
+        //styled
+        console.log("%c I am styled text","font-size: 50px; background:yellow;");
+
+        //warning
+        console.warn("Warning alert!!");
+
+        //error
+        console.error("Error detected");
+
+        //info
+        console.info("Earth is round");
+
+        //testing
+        const p = document.querySelector("p");
+        console.assert(p.classList.contains("hello"), "This is incorrect!!");
+    
+        //viewing DOM element
+        console.log(p);
+        console.dir(p);         // show all properties as a dropdown
+    
+        //grouping together
+        const cats = [{name:"kitty",age:3},{name:"dora",age:5}];
+
+        cats.forEach(cat => {
+            console.group(`${cat.name}`)
+            console.log(`This is ${cat.name}`);
+            console.log(`${cat.name} is ${cat.age} years old`);
+            console.groupEnd(`${cat.name}`);
+        });
+
+        //counting
+        console.count("hello");     // how many counted at a time
+        console.count("hello");
+        console.count("hello");
+        console.count("hi");
+        console.count("hello");
+        console.count("hi");
+        console.count("hi");
+        console.count("hello");
+        console.count("hello");
+
+        //timing
+        console.time("Fetch data");     // shows the time required to do a task
+        fetch('https://api.github.com/users/wesbos')
+        .then(data => data.json())
+        .then(data => {
+            console.timeEnd("Fetch data");
+            console.log(data);
+        });
+
+        //table
+        console.table(cats);
+
+        //clear
+        console.clear();
+
+    </script>
+</html>
