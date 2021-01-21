@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objects And Arrays</title>
+    </head>
+    <body>
+        <script>
+            // strings , numbers and arrays
+
+            let age = 22;
+            let age1 = age;
+            console.log(age,age1);
+
+            let name = "Nabonita";
+            let name1 = "Debnath";
+            console.log(name,name1);
+
+            //Array
+
+            const players = ["Sachin","Virat","Rohit","Dhoni"];
+            const team = players;           // team is a reference to players
+
+            console.log(players,team);
+
+            team[3] = "Rishabh"             // changes in players array too
+            console.log(players,team);
+
+            const team2 = players.slice();   // Way1 -Copy the actual array
+            team2[1] = "Bumrah";
+            console.log(players,team2);
+
+            team3 = [].concat(players);       // Way 2 -Copy
+
+            team4 = [...players];              //Way 3 - Copy - Spread operator
+            console.log(team3,team4);
+
+            team5 = Array.from(players);        // Way 4 -Copy
+            team5[3] = "Rahul"
+            console.log(players,team5);
+            
+            // Objects
+
+            const person = {
+                name : "John Lobo",
+                age : 30,
+                social: {
+                    twitter: "@johnlobo",
+                    insta: "@johnlobo"
+                }
+            }
+            
+            const captain = person;             // reference
+            captain.number = 99;
+            console.log(person,captain);
+
+            const captain2 = Object.assign({} , person , {game:"Cricket"});     //copy and add new property - one level deep
+            console.log(person,captain2);                                       // new property not added to original object
+
+            captain2.social.insta = "John...Lobo";
+            console.log(person,captain2);                                       // 'insta' value changed in both
+            
+            const captain3 = JSON.parse(JSON.stringify(person));            
+            captain3.social.twitter = "@lobojohn";                  // value unchanged in original object
+            console.log(person,captain3);
+        </script>
+    </body>
+</html>
