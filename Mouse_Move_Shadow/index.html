@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mouse Move Shadow</title>
+
+        <style>
+            html{
+                color: black;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+
+            body{
+                margin: 0;
+            }
+
+            .content{
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: black;
+            }
+
+            h1{
+                text-shadow: 8px 8px 0 rebeccapurple;
+                font-size: 200;
+            }
+        </style>
+    </head>
+    <body>
+        <div class = "content">
+            <h1 class="word">🔥CIAO!!!</h1>
+        </div>
+
+        <script>
+            const content = document.querySelector(".content");
+            const text = document.querySelector("h1");
+
+            const dist = 200;
+
+            function shadow(e){
+               const {offsetWidth : width , offsetHeight : height} = content
+
+               let {offsetX : x , offsetY : y} = e;
+
+               if(this != e.target){
+                   x = x + e.offsetLeft;
+                   y = y + e.offsetRight;
+               }
+               
+               const xShadow = Math.round((x / width * dist) - (dist / 2));
+               const yShadow = Math.round((x / height * dist) - (dist / 2));
+
+               text.style.textShadow = `${xShadow}px ${yShadow}px 0 pink ,
+                                        ${xShadow * - 1}px ${yShadow}px 0 lavender,
+                                        ${xShadow}px ${yShadow * - 1}px 0 purple,
+                                        ${xShadow * -1}px ${yShadow * -1}px 0 green`;
+            }
+            content.addEventListener("mousemove",shadow);
+        </script>
+    </body>
+</html>
